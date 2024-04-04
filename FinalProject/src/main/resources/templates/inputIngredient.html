@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add Ingredient</title>
+<script>
+
+function validateForm() {
+	var ingredientName = document.getElementsByName('ingredientName')[0].value.trim();
+	var quantity = document.getElementsByName('quantity')[0].value.trim();
+	var quantityRegex = /^\d+$/;
+    
+    if (ingredientName === '') {
+        alert("Please enter a name.");
+        return false;
+    }
+	
+    if (quantity === '') {
+        alert("Please enter a quantity.");
+        return false;
+    } else if (!quantityRegex.test(quantity)) {
+        alert("Quantity can only contain numerical digits.");
+        return false;
+    }
+}
+
+</script>
+</head>
+<body>
+<form th:object="${newIngredient}" th:action="@{/update/{id}(id=${newIngredient.id})}" method=POST onsubmit="return validateForm()">
+	Name:
+	<input type="text" name="ingredientName" size="20" th:field="*{ingredientName}">
+	<br>
+	Quantity:
+	<input type="text" name="quantity" size="20" th:field="*{quantity}">
+	<br>
+	<a th:href="@{/viewAll}">View All Ingredients</a>
+	<input name="submit" type="submit" value="submit" />
+</form>
+</body>
+</html>

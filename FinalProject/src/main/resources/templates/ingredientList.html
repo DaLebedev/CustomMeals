@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View All Ingredients</title>
+</head>
+<body>
+<form>
+<table>
+  <tr th:each="currentIngredient : ${newIngredient}" >
+    <td th:text="${currentIngredient.id}">
+    <td th:text="${currentIngredient.ingredientName}">
+    <td th:text="${currentIngredient.quantity}">
+	<td><a th:href="@{/edit/{id}(id=${currentIngredient.id})}">Edit</a></td>
+  	<td><a th:href="@{/delete/{id}(id=${currentIngredient.id})}">Delete</a></td>
+  </tr>
+</table>
+</form>
+<a href="../inputIngredient">Add a New Ingredient</a>
+</body>
+</html>
