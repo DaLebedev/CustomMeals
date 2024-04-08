@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import customMeals.beans.Ingredient;
-import customMeals.repositories.IngredientRepo;
+import customMeals.repositories.IngredientRepository;
 
 @Controller
 public class IngredientController {
 	@Autowired
-	IngredientRepo repo;
+	IngredientRepository repo;
 	
-	@GetMapping({"/", "viewAll"})
+	@GetMapping({"/", "viewAllIngredients"})
 	public String viewAllIngredients(Model model) {
 	    if (repo.findAll().isEmpty()) {
 	        return addNewIngredient(model); 
@@ -26,7 +26,7 @@ public class IngredientController {
 	    }
 	}
 	
-	@GetMapping("/inputContact")
+	@GetMapping("/inputIngredient")
 	public String addNewIngredient(Model model) {
 		Ingredient i = new Ingredient();
 		model.addAttribute("newIngredient", i);
@@ -40,26 +40,25 @@ public class IngredientController {
 	}
 	
 	
-	@GetMapping("/edit/{id}")
+	@GetMapping("/editIngredient/{id}")
 	public String showUpdateIngredient(@PathVariable("id") long id, Model model) {
 		Ingredient i = repo.findById(id).orElse(null);
 		model.addAttribute("newIngredient", i);
 		return "inputIngredient";
 	}
 	
-	@PostMapping("/update/{id}")
+	@PostMapping("/updateIngredient/{id}")
 	public String reviseIngredient(Ingredient i, Model model) {
 		repo.save(i);
 		return viewAllIngredients(model);
 	}
 	
-	@GetMapping("/delete/{id}")
+	@GetMapping("/deleteIngredient/{id}")
 	public String deleteIngredient(@PathVariable("id") long id, Model model) {
 		Ingredient i = repo.findById(id).orElse(null);
 		repo.delete(i);
 		return viewAllIngredients(model);
 		
-	}
-	
+	}	
 	
 }
