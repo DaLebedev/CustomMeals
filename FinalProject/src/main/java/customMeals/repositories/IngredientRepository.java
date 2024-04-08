@@ -7,7 +7,7 @@ import customMeals.beans.Ingredient;
 
 
 @Repository
-public interface IngredientRepo extends JpaRepository<Ingredient, Long>{
+public interface IngredientRepository extends JpaRepository<Ingredient, Long>{
 
 }
 

@@ -1,6 +1,5 @@
 package customMeals.beans;
 
-import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -58,6 +57,6 @@ public class Ingredient {
 
 	@Override
 	public String toString() {
-		return "Ingredient [id=" + id + ", ingredientName=" + ingredientName + ", quantity=" + quantity + "]";
+		return ingredientName;
 	}
 }

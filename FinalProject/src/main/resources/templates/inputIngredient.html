@@ -25,15 +25,18 @@ function validateForm() {
 </script>
 </head>
 <body>
-<form th:object="${newIngredient}" th:action="@{/update/{id}(id=${newIngredient.id})}" method=POST onsubmit="return validateForm()">
+<form th:object="${newIngredient}" th:action="@{/updateIngredient/{id}(id=${newIngredient.id})}" method=POST onsubmit="return validateForm()">
 	Name:
 	<input type="text" name="ingredientName" size="20" th:field="*{ingredientName}">
 	<br>
 	Quantity:
 	<input type="text" name="quantity" size="20" th:field="*{quantity}">
 	<br>
-	<a th:href="@{/viewAll}">View All Ingredients</a>
 	<input name="submit" type="submit" value="submit" />
+	<br>
+	<a th:href="@{/viewAllIngredients}">View All Ingredients</a>
+	<a th:href="@{/viewAllEntrees}">View All Entrees Instead</a>
+	<a href="../inputEntree">Add a New Entree Instead</a>
 </form>
 </body>
 </html>

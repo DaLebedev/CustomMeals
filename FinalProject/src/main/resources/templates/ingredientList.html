@@ -10,11 +10,13 @@
     <td th:text="${currentIngredient.id}">
     <td th:text="${currentIngredient.ingredientName}">
     <td th:text="${currentIngredient.quantity}">
-	<td><a th:href="@{/edit/{id}(id=${currentIngredient.id})}">Edit</a></td>
-  	<td><a th:href="@{/delete/{id}(id=${currentIngredient.id})}">Delete</a></td>
+	<td><a th:href="@{/editIngredient/{id}(id=${currentIngredient.id})}">Edit</a></td>
+  	<td><a th:href="@{/deleteIngredient/{id}(id=${currentIngredient.id})}">Delete</a></td>
   </tr>
 </table>
 </form>
 <a href="../inputIngredient">Add a New Ingredient</a>
+<a th:href="@{/viewAllEntrees}">View All Entrees Instead</a>
+<a href="../inputEntree">Add a New Entree Instead</a>
 </body>
 </html>
