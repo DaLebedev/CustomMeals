@@ -1,23 +1,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>View All Entrees</title>
+<title>View All Sides</title>
 </head>
 <body>
-<h1>Entrees</h1>
+<h1>Sides</h1>
 <form>
 <table>
   <tr>
     <th>Name</th>
-    <th>Price</th>
+    <th>Quantity</th>
     <th>Ingredients</th>
   </tr>
-  <tr th:each="currentEntree : ${newEntree}" >
-    <td th:text="${currentEntree.entreeName}"></td>
-    <td th:text="${currentEntree.price}"></td>
-    <td th:text="${currentEntree.ingredients}"></td>
-    <td><a th:href="@{/editEntree/{id}(id=${currentEntree.id})}">Edit</a></td>
-    <td><a th:href="@{/deleteEntree/{id}(id=${currentEntree.id})}">Delete</a></td>
+  <tr th:each="currentSide : ${newSide}" >
+    <td th:text="${currentSide.sideName}"></td>
+    <td th:text="${currentSide.quantity}"></td>
+    <td th:text="${currentSide.ingredients}"></td>
+    <td><a th:href="@{/editSide/{id}(id=${currentSide.id})}">Edit</a></td>
+    <td><a th:href="@{/deleteSide/{id}(id=${currentSide.id})}">Delete</a></td>
   </tr>
 </table>
 </form>

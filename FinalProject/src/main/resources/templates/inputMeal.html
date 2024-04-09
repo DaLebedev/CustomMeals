@@ -1,6 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Add Entree</title>
+<title>Add Meal</title>
 <script>
 
 function validateForm() {
@@ -26,24 +26,36 @@ function validateForm() {
 </script>
 </head>
 <body>
-<h1>Add Entree</h1>
-<form th:object="${newEntree}" th:action="@{/updateEntree/{id}(id=${newEntree.id})}" method=POST onsubmit="return validateForm()">
+<h1>Add Meal</h1>
+<form th:object="${newMeal}" th:action="@{/updateMeal/{id}(id=${newMeal.id})}" method=POST onsubmit="return validateForm()">
 	
 	Name:
-	<input type="text" name="entreeName" size="20" th:field="*{entreeName}">
+	<input type="text" name="mealName" size="20" th:field="*{mealName}">
 	<br>
-	Price:
-	<input type="text" name="price" size="20" th:field="*{price}">
-	<br>
-	<label for="ingredients">Ingredients:</label><br>
-      <select multiple id="ingredients" name="ingredients">
-        <option th:each="ingredient : ${allIngredients}" 
-          th:value="${ingredient.id}"
-          th:text="${ingredient.ingredientName + ' - ' + ingredient.quantity}">
+	<label for="entrees">Entree:</label><br>
+      <select multiple id="entrees" name="entrees">
+        <option th:each="entree : ${allEntrees}" 
+          th:value="${entree.id}"
+          th:text="${entree.entreeName}">
         </option>
       </select>
-<br>
-<input name="submit" type="submit" value="submit" />
+      <br>
+    <label for="sides">Side:</label><br>
+      <select multiple id="sides" name="sides">
+        <option th:each="side : ${allSides}" 
+          th:value="${side.id}"
+          th:text="${side.sideName}">
+        </option>
+      </select>
+      <br>
+   <label for="appetizers">Appetizer:</label><br>
+      <select multiple id="appetizers" name="appetizers">
+        <option th:each="appetizer : ${allAppetizers}" 
+          th:value="${appetizer.id}"
+          th:text="${appetizer.appetizerName}">
+        </option>
+      </select>
+   <input name="submit" type="submit" value="submit" />
 <br>
 <table>
   <tr>
