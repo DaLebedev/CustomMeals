@@ -1,23 +1,25 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>View All Entrees</title>
+<title>View All Meals</title>
 </head>
 <body>
-<h1>Entrees</h1>
+<h1>Meals</h1>
 <form>
 <table>
   <tr>
     <th>Name</th>
-    <th>Price</th>
-    <th>Ingredients</th>
+    <th>Entree</th>
+    <th>Side</th>
+    <th>Appetizer</th>
   </tr>
-  <tr th:each="currentEntree : ${newEntree}" >
-    <td th:text="${currentEntree.entreeName}"></td>
-    <td th:text="${currentEntree.price}"></td>
-    <td th:text="${currentEntree.ingredients}"></td>
-    <td><a th:href="@{/editEntree/{id}(id=${currentEntree.id})}">Edit</a></td>
-    <td><a th:href="@{/deleteEntree/{id}(id=${currentEntree.id})}">Delete</a></td>
+  <tr th:each="currentMeal : ${newMeal}" >
+    <td th:text="${currentMeal.mealName}"></td>
+    <td th:text="${currentMeal.entrees}"></td>
+    <td th:text="${currentMeal.sides}"></td>
+    <td th:text="${currentMeal.appetizers}"></td>
+    <td><a th:href="@{/editMeal/{id}(id=${currentMeal.id})}">Edit</a></td>
+    <td><a th:href="@{/deleteMeal/{id}(id=${currentMeal.id})}">Delete</a></td>
   </tr>
 </table>
 </form>

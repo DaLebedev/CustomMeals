@@ -1,10 +1,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>View All Entrees</title>
+<title>View All Appetizers</title>
 </head>
 <body>
-<h1>Entrees</h1>
+<h1>Appetizers</h1>
 <form>
 <table>
   <tr>
@@ -12,12 +12,12 @@
     <th>Price</th>
     <th>Ingredients</th>
   </tr>
-  <tr th:each="currentEntree : ${newEntree}" >
-    <td th:text="${currentEntree.entreeName}"></td>
-    <td th:text="${currentEntree.price}"></td>
-    <td th:text="${currentEntree.ingredients}"></td>
-    <td><a th:href="@{/editEntree/{id}(id=${currentEntree.id})}">Edit</a></td>
-    <td><a th:href="@{/deleteEntree/{id}(id=${currentEntree.id})}">Delete</a></td>
+  <tr th:each="currentAppetizer : ${newAppetizer}" >
+    <td th:text="${currentAppetizer.appetizerName}"></td>
+    <td th:text="${currentAppetizer.price}"></td>
+    <td th:text="${currentAppetizer.ingredients}"></td>
+    <td><a th:href="@{/editAppetizer/{id}(id=${currentAppetizer.id})}">Edit</a></td>
+    <td><a th:href="@{/deleteAppetizer/{id}(id=${currentAppetizer.id})}">Delete</a></td>
   </tr>
 </table>
 </form>

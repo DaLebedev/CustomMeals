@@ -1,36 +1,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Add Entree</title>
-<script>
-
-function validateForm() {
-	<!-- var entreeName = document.getElementsByName('entreeName')[0].value.trim();
-	var quantity = document.getElementsByName('quantity')[0].value.trim();
-	var quantityRegex = /^\d+$/;
-    
-    if (entreeName === '') {
-        alert("Please enter a name.");
-        return false;
-    }
-	
-    if (quantity === '') {
-        alert("Please enter a quantity.");
-        return false;
-    } else if (!quantityRegex.test(quantity)) {
-        alert("Quantity can only contain numerical digits.");
-        return false;
-    } -->
-    return true
-}
-
-</script>
+<title>Add Appetizer</title>
 </head>
 <body>
-<h1>Add Entree</h1>
-<form th:object="${newEntree}" th:action="@{/updateEntree/{id}(id=${newEntree.id})}" method=POST onsubmit="return validateForm()">
+<h1>Add Appetizer</h1>
+<form th:object="${newAppetizer}" th:action="@{/updateAppetizer/{id}(id=${newAppetizer.id})}" method=POST onsubmit="return validateForm()">
 	
 	Name:
-	<input type="text" name="entreeName" size="20" th:field="*{entreeName}">
+	<input type="text" name="appetizerName" size="20" th:field="*{appetizerName}">
 	<br>
 	Price:
 	<input type="text" name="price" size="20" th:field="*{price}">
