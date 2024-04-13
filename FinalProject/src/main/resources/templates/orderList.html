@@ -1,23 +1,35 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>View All Entrees</title>
+<title>View All Orders</title>
 </head>
 <body>
-<h1>Entrees</h1>
+<h1>Orders</h1>
 <form>
 <table>
   <tr>
     <th>Name</th>
-    <th>Price</th>
-    <th>Ingredients</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+    <th>Meal</th>
+    <th>Pickup Time</th>
+    <th>SubTotal</th>
+    <th>Tip %</th>
+    <th>Tax %</th>
+    <th>Total</th>
   </tr>
-  <tr th:each="currentEntree : ${newEntree}" >
-    <td th:text="${currentEntree.entreeName}"></td>
-    <td th:text="${currentEntree.price}"></td>
-    <td th:text="${currentEntree.ingredients}"></td>
-    <td><a th:href="@{/editEntree/{id}(id=${currentEntree.id})}">Edit</a></td>
-    <td><a th:href="@{/deleteEntree/{id}(id=${currentEntree.id})}">Delete</a></td>
+  <tr th:each="currentOrder : ${orders}" >
+    <td th:text="${currentOrder.userName}"></td>
+    <td th:text="${currentOrder.email}"></td>
+    <td th:text="${currentOrder.phoneNumber}"></td>
+    <td th:text="${currentOrder.meals}"></td>
+    <td th:text="${currentOrder.pickupTime}"></td>
+    <td th:text="${currentOrder.calculateSubTotal()}"></td>
+    <td th:text="${currentOrder.tip}"></td>
+    <td th:text="${currentOrder.tax}"></td>
+    <td th:text="${currentOrder.calculateTotal()}"></td>
+    <td><a th:href="@{/editOrder/{id}(id=${currentOrder.id})}">Edit</a></td>
+    <td><a th:href="@{/deleteOrder/{id}(id=${currentOrder.id})}">Delete</a></td>
   </tr>
 </table>
 </form>

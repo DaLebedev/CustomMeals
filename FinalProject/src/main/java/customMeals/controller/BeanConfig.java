@@ -7,6 +7,7 @@ import customMeals.beans.Appetizer;
 import customMeals.beans.Entree;
 import customMeals.beans.Ingredient;
 import customMeals.beans.Meal;
+import customMeals.beans.MealOrder;
 import customMeals.beans.Side;
 
 @Configuration
@@ -39,6 +40,12 @@ public class BeanConfig {
 	@Bean
 	Meal meal() {
 		Meal bean = new Meal();
+		return bean;
+	}
+	
+	@Bean
+	MealOrder mealOrder() {
+		MealOrder bean = new MealOrder();
 		return bean;
 	}
 	
