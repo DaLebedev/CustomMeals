@@ -1,0 +1,60 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View All Meals</title>
+</head>
+<body>
+<h1>Meals</h1>
+<form>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Entree</th>
+    <th>Side</th>
+    <th>Appetizer</th>
+    <th>Price</th>
+  </tr>
+  <tr th:each="currentMeal : ${newMeal}" >
+    <td th:text="${currentMeal.mealName}"></td>
+    <td th:text="${currentMeal.entrees}"></td>
+    <td th:text="${currentMeal.sides}"></td>
+    <td th:text="${currentMeal.appetizers}"></td>
+    <td th:text="${currentMeal.calculateMealPrice()}"></td>
+    <td><a th:href="@{/editMeal/{id}(id=${currentMeal.id})}">Edit</a></td>
+    <td><a th:href="@{/deleteMeal/{id}(id=${currentMeal.id})}">Delete</a></td>
+  </tr>
+</table>
+</form>
+<br>
+<table>
+  <tr>
+    <th>Add Items</th>
+    <th>View Items</th>
+  </tr>
+  <tr>
+  	<td><a href="../inputEntree">Add a New Entree</a></td>
+  	<td><a th:href="@{/viewAllEntrees}">View All Entrees</a></td>
+  </tr>
+  <tr>
+  	<td><a href="../inputIngredient">Add a New Ingredient</a></td>
+  	<td><a th:href="@{/viewAllIngredients}">View All Ingredients</a></td>
+  </tr>
+  <tr>
+  	<td><a href="../inputSide">Add a New Side</a></td>
+  	<td><a th:href="@{/viewAllSides}">View All Sides</a></td>
+  </tr>
+  <tr>
+  	<td><a href="../inputAppetizer">Add a New Appetizer</a></td>
+  	<td><a th:href="@{/viewAllAppetizers}">View All Appetizers</a></td>
+  </tr>
+  <tr>
+  	<td><a href="../inputMeal">Create New Meal</a></td>
+  	<td><a th:href="@{/viewAllMeals}">View All Meals</a></td>
+  </tr>
+  <tr>
+  	<td><a href="../inputOrder">Create New Order</a></td>
+  	<td><a th:href="@{/viewAllOrders}">View All Orders</a></td>
+  </tr>
+</table>
+</body>
+</html>
