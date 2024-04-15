@@ -84,10 +84,7 @@ public class Side {
 
 	@Override
 	public String toString() {
-		return "Side [id=" + id + ", sideName=" + sideName + ", quantity=" + quantity + ", ingredients=" + ingredients
-				+ "]";
+		return "Name=" + sideName + ", quantity=" + quantity + ", ingredients=" + ingredients;
 	}
-	
-	
 
 }

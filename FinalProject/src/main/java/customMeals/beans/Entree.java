@@ -80,8 +80,7 @@ public class Entree {
 
 	@Override
 	public String toString() {
-		return "Entree [id=" + id + ", entreeName=" + entreeName + ", price=" + price + ", ingredients=" + ingredients
-				+ "]";
+		return entreeName + ", Price: " + price + ", Ingredients:" + ingredients;
 	}
 	
 }

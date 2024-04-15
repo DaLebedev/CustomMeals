@@ -8,7 +8,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 
 /**
  * @author Jeff Johnson - jjohnson190
@@ -43,27 +42,48 @@ public class Meal {
 		       inverseJoinColumns = @JoinColumn(name = "meal_id"))
 	private List<Appetizer> appetizers;
 	
+	private double price;
+	
 	public Meal() {
 		super();
 	}
 
-	public Meal(String mealName, List<Entree> entrees, List<Side> sides, List<Appetizer> appetizers) {
-		super();
-		this.mealName = mealName;
-		this.entrees = entrees;
-		this.sides = sides;
-		this.appetizers = appetizers;
+	public Meal(String mealName, List<Entree> entrees, List<Side> sides, List<Appetizer> appetizers, double price) {
+	    this.mealName = mealName;
+	    this.entrees = entrees;
+	    this.sides = sides;
+	    this.appetizers = appetizers;
+	    this.price = price;
 	}
-
-	public Meal(long id, String mealName, List<Entree> entrees, List<Side> sides, List<Appetizer> appetizers) {
+	
+	public Meal(long id, String mealName, List<Entree> entrees, List<Side> sides, List<Appetizer> appetizers, double price) {
 		super();
 		this.id = id;
 		this.mealName = mealName;
 		this.entrees = entrees;
 		this.sides = sides;
 		this.appetizers = appetizers;
+		this.price = price;	
 	}
 
+	public double calculateMealPrice() {
+	    double mealPrice = 0.0;
+
+	    if (appetizers != null) {
+	        for (Appetizer appetizer : appetizers) {
+	        	mealPrice += appetizer.getPrice();
+	        }
+	    }
+
+	    if (entrees != null) {
+	        for (Entree entree : entrees) {
+	        	mealPrice += entree.getPrice();
+	        }
+	    }
+
+	    return mealPrice;
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -104,12 +124,19 @@ public class Meal {
 		this.appetizers = appetizers;
 	}
 
-	@Override
-	public String toString() {
-		return "Meal [id=" + id + ", mealName=" + mealName + ", entrees=" + entrees + ", sides=" + sides
-				+ ", appetizers=" + appetizers + "]";
+	public double getPrice() {
+		price = calculateMealPrice();
+		return price;
 	}
 
-	
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		return "Meal Name: " + mealName + " - Entrees: " + entrees + " - Sides: " + sides
+				+ " - Appetizers:" + appetizers;
+	}
 	
 }

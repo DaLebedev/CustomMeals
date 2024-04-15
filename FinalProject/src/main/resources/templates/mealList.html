@@ -12,12 +12,14 @@
     <th>Entree</th>
     <th>Side</th>
     <th>Appetizer</th>
+    <th>Price</th>
   </tr>
   <tr th:each="currentMeal : ${newMeal}" >
     <td th:text="${currentMeal.mealName}"></td>
     <td th:text="${currentMeal.entrees}"></td>
     <td th:text="${currentMeal.sides}"></td>
     <td th:text="${currentMeal.appetizers}"></td>
+    <td th:text="${currentMeal.calculateMealPrice()}"></td>
     <td><a th:href="@{/editMeal/{id}(id=${currentMeal.id})}">Edit</a></td>
     <td><a th:href="@{/deleteMeal/{id}(id=${currentMeal.id})}">Delete</a></td>
   </tr>
@@ -48,6 +50,10 @@
   <tr>
   	<td><a href="../inputMeal">Create New Meal</a></td>
   	<td><a th:href="@{/viewAllMeals}">View All Meals</a></td>
+  </tr>
+  <tr>
+  	<td><a href="../inputOrder">Create New Order</a></td>
+  	<td><a th:href="@{/viewAllOrders}">View All Orders</a></td>
   </tr>
 </table>
 </body>
