@@ -10,7 +10,6 @@
   <tr th:each="currentIngredient : ${newIngredient}" >
     <td th:text="${currentIngredient.id}">
     <td th:text="${currentIngredient.ingredientName}">
-    <td th:text="${currentIngredient.quantity}">
 	<td><a th:href="@{/editIngredient/{id}(id=${currentIngredient.id})}">Edit</a></td>
   	<td><a th:href="@{/deleteIngredient/{id}(id=${currentIngredient.id})}">Delete</a></td>
   </tr>

@@ -22,7 +22,7 @@
     <td th:text="${currentOrder.userName}"></td>
     <td th:text="${currentOrder.email}"></td>
     <td th:text="${currentOrder.phoneNumber}"></td>
-    <td th:text="${currentOrder.meals}"></td>
+	<td th:text="${currentOrder.meals}"></td>
     <td th:text="${currentOrder.pickupTime}"></td>
     <td th:text="${currentOrder.calculateSubTotal()}"></td>
     <td th:text="${currentOrder.tip}"></td>
@@ -30,6 +30,7 @@
     <td th:text="${currentOrder.calculateTotal()}"></td>
     <td><a th:href="@{/editOrder/{id}(id=${currentOrder.id})}">Edit</a></td>
     <td><a th:href="@{/deleteOrder/{id}(id=${currentOrder.id})}">Delete</a></td>
+    <td><a th:href="@{/confirmOrder/{id}(id=${currentOrder.id})}">Confirm</a></td>
   </tr>
 </table>
 </form>

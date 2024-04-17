@@ -80,7 +80,7 @@ public class Entree {
 
 	@Override
 	public String toString() {
-		return entreeName + ", Price: " + price + ", Ingredients:" + ingredients;
+		return entreeName + " | $" + price + " | Ingredients: " + ingredients;
 	}
 	
 }

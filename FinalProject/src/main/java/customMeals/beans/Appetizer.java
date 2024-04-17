@@ -86,7 +86,7 @@ public class Appetizer {
 
 	@Override
 	public String toString() {
-		return "Name: " + appetizerName + ", Price: " + price + ", Ingredients:"
+		return appetizerName + " | $" + price + " | Ingredients: "
 				+ ingredients;
 	}
 	
