@@ -39,7 +39,7 @@ function validateForm() {
       <select multiple id="ingredients" name="ingredients">
         <option th:each="ingredient : ${allIngredients}" 
           th:value="${ingredient.id}"
-          th:text="${ingredient.ingredientName + ' - ' + ingredient.quantity}">
+          th:text="${ingredient.ingredientName}">
         </option>
       </select>
 <br>

@@ -5,7 +5,6 @@
 
 function validateForm() {
 	var ingredientName = document.getElementsByName('ingredientName')[0].value.trim();
-	var quantity = document.getElementsByName('quantity')[0].value.trim();
 	var quantityRegex = /^\d+$/;
     
     if (ingredientName === '') {
@@ -13,13 +12,6 @@ function validateForm() {
         return false;
     }
 	
-    if (quantity === '') {
-        alert("Please enter a quantity.");
-        return false;
-    } else if (!quantityRegex.test(quantity)) {
-        alert("Quantity can only contain numerical digits.");
-        return false;
-    }
 }
 
 </script>
@@ -29,9 +21,6 @@ function validateForm() {
 <form th:object="${newIngredient}" th:action="@{/updateIngredient/{id}(id=${newIngredient.id})}" method=POST onsubmit="return validateForm()">
 	Name:
 	<input type="text" name="ingredientName" size="20" th:field="*{ingredientName}">
-	<br>
-	Quantity:
-	<input type="text" name="quantity" size="20" th:field="*{quantity}">
 <br>
 <input name="submit" type="submit" value="submit" />
 <br>

@@ -9,14 +9,11 @@
 	Name:
 	<input type="text" name="sideName" size="20" th:field="*{sideName}">
 	<br>
-	Quantity:
-	<input type="text" name="quantity" size="20" th:field="*{quantity}">
-	<br>
 	<label for="ingredients">Ingredients:</label><br>
       <select multiple id="ingredients" name="ingredients">
         <option th:each="ingredient : ${allIngredients}" 
           th:value="${ingredient.id}"
-          th:text="${ingredient.ingredientName + ' - ' + ingredient.quantity}">
+          th:text="${ingredient.ingredientName}">
         </option>
       </select>
 <br>

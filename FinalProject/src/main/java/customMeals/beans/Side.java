@@ -23,7 +23,6 @@ public class Side {
 	private long id;
 	
 	private String sideName;
-	private int quantity;
 	
 	@ManyToMany
 	@JoinTable(name = "sideingredients",
@@ -35,18 +34,16 @@ public class Side {
 		super();
 	}
 
-	public Side(String sideName, int quantity, List<Ingredient> ingredients) {
+	public Side(String sideName, List<Ingredient> ingredients) {
 		super();
 		this.sideName = sideName;
-		this.quantity = quantity;
 		this.ingredients = ingredients;
 	}
 
-	public Side(long id, String sideName, int quantity, List<Ingredient> ingredients) {
+	public Side(long id, String sideName, List<Ingredient> ingredients) {
 		super();
 		this.id = id;
 		this.sideName = sideName;
-		this.quantity = quantity;
 		this.ingredients = ingredients;
 	}
 
@@ -66,13 +63,6 @@ public class Side {
 		this.sideName = sideName;
 	}
 
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
 
 	public List<Ingredient> getIngredients() {
 		return ingredients;
@@ -84,7 +74,7 @@ public class Side {
 
 	@Override
 	public String toString() {
-		return "Name=" + sideName + ", quantity=" + quantity + ", ingredients=" + ingredients;
+		return sideName + " | Ingredients: " + ingredients;
 	}
 
 }

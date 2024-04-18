@@ -11,24 +11,20 @@ public class Ingredient {
 	@GeneratedValue
 	private long id;
 	private String ingredientName;
-	private int quantity;
-	
 	
 	public Ingredient() {
 		super();
 	}
 
-	public Ingredient(String ingredientName, int quantity) {
+	public Ingredient(String ingredientName) {
 		super();
 		this.ingredientName = ingredientName;
-		this.quantity = quantity;
 	}
 
-	public Ingredient(long id, String ingredientName, int quantity) {
+	public Ingredient(long id, String ingredientName) {
 		super();
 		this.id = id;
 		this.ingredientName = ingredientName;
-		this.quantity = quantity;
 	}
 
 	public long getId() {
@@ -45,14 +41,6 @@ public class Ingredient {
 
 	public void setIngredientName(String ingredientName) {
 		this.ingredientName = ingredientName;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
 	}
 
 	@Override

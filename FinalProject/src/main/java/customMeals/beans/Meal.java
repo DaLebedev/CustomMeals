@@ -135,8 +135,8 @@ public class Meal {
 
 	@Override
 	public String toString() {
-		return "Meal Name: " + mealName + " - Entrees: " + entrees + " - Sides: " + sides
-				+ " - Appetizers:" + appetizers;
+		return mealName + " - Entrees: " + entrees + " - Sides: " + sides
+				+ " - Appetizers: " + appetizers;
 	}
 	
 }

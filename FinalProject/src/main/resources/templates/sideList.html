@@ -14,7 +14,6 @@
   </tr>
   <tr th:each="currentSide : ${newSide}" >
     <td th:text="${currentSide.sideName}"></td>
-    <td th:text="${currentSide.quantity}"></td>
     <td th:text="${currentSide.ingredients}"></td>
     <td><a th:href="@{/editSide/{id}(id=${currentSide.id})}">Edit</a></td>
     <td><a th:href="@{/deleteSide/{id}(id=${currentSide.id})}">Delete</a></td>

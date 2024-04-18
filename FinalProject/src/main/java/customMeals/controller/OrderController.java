@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import customMeals.beans.Meal;
 import customMeals.beans.MealOrder;
+import customMeals.repositories.AppetizerRepository;
+import customMeals.repositories.EntreeRepository;
 import customMeals.repositories.MealRepository;
 import customMeals.repositories.OrderRepository;
+import customMeals.repositories.SideRepository;
 
 
 @Controller
@@ -73,6 +76,13 @@ public class OrderController {
 		repo.delete(mo);
 		return viewAllOrders(model);
 		
-	}	
+	}
+	
+	@GetMapping("/confirmOrder/{id}")
+	public String confirmOrder(@PathVariable long id, Model model) {
+		MealOrder mo = repo.findById(id).orElse(null);
+		model.addAttribute("currentOrder", mo);
+		return "confirmation";
+	}
 
 }
