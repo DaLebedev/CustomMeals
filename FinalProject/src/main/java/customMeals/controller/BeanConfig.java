@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import customMeals.beans.Appetizer;
+import customMeals.beans.CompletedOrder;
 import customMeals.beans.Entree;
 import customMeals.beans.Ingredient;
 import customMeals.beans.Meal;
@@ -46,6 +47,12 @@ public class BeanConfig {
 	@Bean
 	MealOrder mealOrder() {
 		MealOrder bean = new MealOrder();
+		return bean;
+	}
+	
+	@Bean
+	CompletedOrder completedOrder() {
+		CompletedOrder bean = new CompletedOrder();
 		return bean;
 	}
 	

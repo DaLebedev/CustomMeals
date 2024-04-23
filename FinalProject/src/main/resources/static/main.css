@@ -1,0 +1,117 @@
+body {
+ 	background-color:white;
+	font-family: "Times New Roman", Times, serif;
+}
+
+h1 {
+	text-align: center;
+}
+
+label {
+	padding: 5px;
+}
+
+form {
+	font-weight: bold;
+	text-align: center;
+	font-size: 24px;
+}
+
+form .plain {
+	font-weight: normal;
+	font-size: 18px;
+}
+
+table td {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+}
+
+input, select {
+	margin: 10px;
+	border: 3px solid #29333B;
+	border-radius: 5px;
+	font-size: 18px;
+	font-family: "Times New Roman", Times, serif;
+}
+
+a.edit {
+	color: #3c71b3;
+	margin: 5px;
+}
+
+a.delete {
+    color: #4d4d4d;
+    margin: 5px;
+}
+
+a.confirm {
+    color: #43767a;
+    margin: 5px;
+}
+
+a.edit:hover {
+	color: #7020c8;
+}
+
+a.delete:hover {
+	color: red;
+}
+
+a.confirm:hover {
+	color: #10b6be;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #38444d;
+  font-size: 18px;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: #29333B;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+	background-color: #DEDEDE;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

@@ -1,0 +1,88 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add Meal</title>
+<script>
+
+function validateForm() {
+	<!-- var entreeName = document.getElementsByName('entreeName')[0].value.trim();
+	var quantity = document.getElementsByName('quantity')[0].value.trim();
+	var quantityRegex = /^\d+$/;
+    
+    if (entreeName === '') {
+        alert("Please enter a name.");
+        return false;
+    }
+	
+    if (quantity === '') {
+        alert("Please enter a quantity.");
+        return false;
+    } else if (!quantityRegex.test(quantity)) {
+        alert("Quantity can only contain numerical digits.");
+        return false;
+    } -->
+    return true
+}
+
+</script>
+</head>
+<body>
+<h1>Add Order</h1>
+<form th:object="${newOrder}" th:action="@{/updateOrder/{id}(id=${newOrder.id})}" method=POST onsubmit="return validateForm()">
+	
+	Name:
+	<input type="text" name="userName" size="20" th:field="*{userName}">
+	<br>
+	Email:
+	<input type="text" name="email" size="20" th:field="*{email}">
+	<br>
+	Phone Number:
+	<input type="text" name="phoneNumber" size="20" th:field="*{phoneNumber}">
+	<br>
+	<label for="meals">Meal:</label><br>
+      <select multiple id="meals" name="meals">
+        <option th:each="meal : ${allMeals}" 
+          th:value="${meal.id}"
+          th:text="${meal.mealName}">
+        </option>
+      </select>
+    <br>
+    
+    Tip %:
+	<input type="text" name="tip" size="20" th:field="*{tip}">
+	<br>
+    
+  <input name="submit" type="submit" value="submit" />
+  <br>
+<table>
+  <tr>
+    <th>Add Items</th>
+    <th>View Items</th>
+  </tr>
+  <tr>
+  	<td><a href="../inputEntree">Add a New Entree</a></td>
+  	<td><a th:href="@{/viewAllEntrees}">View All Entrees</a></td>
+  </tr>
+  <tr>
+  	<td><a href="../inputIngredient">Add a New Ingredient</a></td>
+  	<td><a th:href="@{/viewAllIngredients}">View All Ingredients</a></td>
+  </tr>
+  <tr>
+  	<td><a href="../inputSide">Add a New Side</a></td>
+  	<td><a th:href="@{/viewAllSides}">View All Sides</a></td>
+  </tr>
+  <tr>
+  	<td><a href="../inputAppetizer">Add a New Appetizer</a></td>
+  	<td><a th:href="@{/viewAllAppetizers}">View All Appetizers</a></td>
+  </tr>
+  <tr>
+  	<td><a href="../inputMeal">Create New Meal</a></td>
+  	<td><a th:href="@{/viewAllMeals}">View All Meals</a></td>
+  </tr>
+  <tr>
+  	<td><a href="../inputOrder">Create New Order</a></td>
+  	<td><a th:href="@{/viewAllOrders}">View All Orders</a></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

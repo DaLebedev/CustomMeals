@@ -97,7 +97,9 @@ public class MealOrder {
 	    return orderTotal;
 	}
 
-
+	public CompletedOrder toCompletedOrder() {
+        return new CompletedOrder(this.userName);
+    }
 	
 	public long getId() {
 		return id;
