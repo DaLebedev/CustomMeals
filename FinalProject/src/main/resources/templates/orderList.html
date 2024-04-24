@@ -1,9 +1,36 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link th:href="@{/main.css}" rel="stylesheet" />
 <title>View All Orders</title>
 </head>
 <body>
+
+<ul>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Add Items</a>
+    <div class="dropdown-content">
+      <a href="../inputIngredient">Add a New Ingredient</a>
+      <a href="../inputAppetizer">Add a New Appetizer</a>
+      <a href="../inputEntree">Add a New Entree</a>
+      <a href="../inputSide">Add a New Side</a>
+      <a href="../inputMeal">Create New Meal</a>
+      <a href="../inputOrder">Create New Order</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">View Items</a>
+    <div class="dropdown-content">
+      <a th:href="@{/viewAllIngredients}">View All Ingredients</a>
+      <a th:href="@{/viewAllAppetizers}">View All Appetizers</a>
+      <a th:href="@{/viewAllEntrees}">View All Entrees</a>
+      <a th:href="@{/viewAllSides}">View All Sides</a>
+      <a th:href="@{/viewAllMeals}">View All Meals</a>
+      <a th:href="@{/viewAllCompletedOrders}">View Completed Orders</a>
+    </div>
+  </li>
+</ul>
+
 <h1>Orders</h1>
 <form>
 <table>
@@ -28,42 +55,12 @@
     <td th:text="${currentOrder.tip}"></td>
     <td th:text="${currentOrder.tax}"></td>
     <td th:text="${currentOrder.calculateTotal()}"></td>
-    <td><a th:href="@{/editOrder/{id}(id=${currentOrder.id})}">Edit</a></td>
-    <td><a th:href="@{/deleteOrder/{id}(id=${currentOrder.id})}">Delete</a></td>
-    <td><a th:href="@{/confirmOrder/{id}(id=${currentOrder.id})}">Confirm</a></td>
+    <td><a class="edit" th:href="@{/editOrder/{id}(id=${currentOrder.id})}">Edit</a></td>
+    <td><a class="confirm" th:href="@{/confirmOrder/{id}(id=${currentOrder.id})}">Confirm</a></td>
+    <td><a class="delete" th:href="@{/deleteOrder/{id}(id=${currentOrder.id})}">Completed</a></td>
   </tr>
 </table>
 </form>
 <br>
-<table>
-  <tr>
-    <th>Add Items</th>
-    <th>View Items</th>
-  </tr>
-  <tr>
-  	<td><a href="../inputEntree">Add a New Entree</a></td>
-  	<td><a th:href="@{/viewAllEntrees}">View All Entrees</a></td>
-  </tr>
-  <tr>
-  	<td><a href="../inputIngredient">Add a New Ingredient</a></td>
-  	<td><a th:href="@{/viewAllIngredients}">View All Ingredients</a></td>
-  </tr>
-  <tr>
-  	<td><a href="../inputSide">Add a New Side</a></td>
-  	<td><a th:href="@{/viewAllSides}">View All Sides</a></td>
-  </tr>
-  <tr>
-  	<td><a href="../inputAppetizer">Add a New Appetizer</a></td>
-  	<td><a th:href="@{/viewAllAppetizers}">View All Appetizers</a></td>
-  </tr>
-  <tr>
-  	<td><a href="../inputMeal">Create New Meal</a></td>
-  	<td><a th:href="@{/viewAllMeals}">View All Meals</a></td>
-  </tr>
-  <tr>
-  	<td><a href="../inputOrder">Create New Order</a></td>
-  	<td><a th:href="@{/viewAllOrders}">View All Orders</a></td>
-  </tr>
-</table>
 </body>
 </html>

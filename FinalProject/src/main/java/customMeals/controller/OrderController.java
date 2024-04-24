@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import customMeals.beans.CompletedOrder;
 import customMeals.beans.Meal;
 import customMeals.beans.MealOrder;
 import customMeals.repositories.AppetizerRepository;
+import customMeals.repositories.CompletedOrderRepository;
 import customMeals.repositories.EntreeRepository;
 import customMeals.repositories.MealRepository;
 import customMeals.repositories.OrderRepository;
@@ -27,6 +29,9 @@ public class OrderController {
 	
 	@Autowired
 	MealRepository mealRepo;
+	
+	@Autowired
+	CompletedOrderRepository completedOrderRepo;
 	
 	@GetMapping({"viewAllOrders"})
 	public String viewAllOrders(Model model) {
@@ -49,7 +54,7 @@ public class OrderController {
 	
 	
 	@PostMapping("/inputOrder")
-	public String addNewMeal(@ModelAttribute MealOrder mo, Model model) {
+	public String addNewOrder(@ModelAttribute MealOrder mo, Model model) {
 		repo.save(mo);
 		return viewAllOrders(model);
 	}
@@ -73,6 +78,8 @@ public class OrderController {
 	@GetMapping("/deleteOrder/{id}")
 	public String deleteOrder(@PathVariable long id, Model model) {
 		MealOrder mo = repo.findById(id).orElse(null);
+		CompletedOrder completedOrder = new CompletedOrder(mo.getUserName());
+        completedOrderRepo.save(completedOrder);
 		repo.delete(mo);
 		return viewAllOrders(model);
 		
@@ -81,8 +88,12 @@ public class OrderController {
 	@GetMapping("/confirmOrder/{id}")
 	public String confirmOrder(@PathVariable long id, Model model) {
 		MealOrder mo = repo.findById(id).orElse(null);
-		model.addAttribute("currentOrder", mo);
-		return "confirmation";
+		if (mo != null) {
+			model.addAttribute("currentOrder", mo);
+			return "confirmation";
+		} else {
+			return viewAllOrders(model);
+		}
 	}
 
 }

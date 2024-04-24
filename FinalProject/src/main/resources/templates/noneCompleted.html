@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <link th:href="@{/main.css}" rel="stylesheet" />
-<title>Order Confirmation</title>
+<title>No Completed Orders</title>
 </head>
 <body>
 
@@ -28,18 +28,11 @@
 	      <a th:href="@{/viewAllSides}">View All Sides</a>
 	      <a th:href="@{/viewAllMeals}">View All Meals</a>
 	      <a th:href="@{/viewAllOrders}">View All Orders</a>
-	      <a th:href="@{/viewAllCompletedOrders}">View Completed Orders</a>
 	    </div>
 	  </li>
 	</ul>
 
-	<form th:object="${currentOrder}" th:action="@{/confirmOrder/{id}(id=${currentOrder.id})}" method='GET'>
-	
-	Name: <input type="text" name="userName" size="20" th:field="*{userName}" readonly><br>
-	Email: <input type="text" name="email" size="20" th:field="*{email}" readonly><br>
-	Phone: <input type="text" name="phoneNumber" size="20" th:field="*{phoneNumber}" readonly><br>
-	Pickup: <input type="text" name="pickupTime" size="20" th:field="*{pickupTime}" readonly><br>
-	Total: <input type="text" name="total" size="20" th:field="*{total}" readonly><br>
-	</form>
+	<h1>No Orders Completed Yet</h1>
+
 </body>
 </html>

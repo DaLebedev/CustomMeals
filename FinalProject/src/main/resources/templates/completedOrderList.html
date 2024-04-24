@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <link th:href="@{/main.css}" rel="stylesheet" />
-<title>View All Sides</title>
+<title>Completed Orders</title>
 </head>
 <body>
 
@@ -24,25 +25,20 @@
       <a th:href="@{/viewAllIngredients}">View All Ingredients</a>
       <a th:href="@{/viewAllAppetizers}">View All Appetizers</a>
       <a th:href="@{/viewAllEntrees}">View All Entrees</a>
+      <a th:href="@{/viewAllSides}">View All Sides</a>
       <a th:href="@{/viewAllMeals}">View All Meals</a>
       <a th:href="@{/viewAllOrders}">View All Orders</a>
-      <a th:href="@{/viewAllCompletedOrders}">View Completed Orders</a>
     </div>
   </li>
 </ul>
-<h1>Sides</h1>
+
+<h1>Completed Orders</h1>
 <form>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Ingredients</th>
-  </tr>
-  <tr th:each="currentSide : ${newSide}" >
-    <td th:text="${currentSide.sideName}"></td>
-    <td th:text="${currentSide.ingredients}"></td>
-    <td><a class="edit" th:href="@{/editSide/{id}(id=${currentSide.id})}">Edit</a></td>
-    <td><a class="delete" th:href="@{/deleteSide/{id}(id=${currentSide.id})}">Delete</a></td>
-  </tr>
+<table class="plain">
+  <tr th:each="completedOrder : ${completedOrders}">
+           <td th:text="${completedOrder.completedOrderName}"></td>
+           <td><a class="delete" th:href="@{/deleteCompletedOrder/{id}(id=${completedOrder.id})}">Delete</a></td>
+     </tr>
 </table>
 </form>
 </body>
