@@ -40,7 +40,7 @@ public class MealController {
 	@Autowired
 	AppetizerRepository appetizerRepo;
 	
-		@GetMapping({"viewAllMeals"})
+		@GetMapping({"/", "viewAllMeals"})
 	public String viewAllMeals(Model model) {
 	    if (repo.findAll().isEmpty()) {
 	        return addNewMeal(model); 

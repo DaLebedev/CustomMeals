@@ -16,7 +16,7 @@ public class IngredientController {
 	@Autowired
 	IngredientRepository repo;
 	
-	@GetMapping({"/", "viewAllIngredients"})
+	@GetMapping({"viewAllIngredients"})
 	public String viewAllIngredients(Model model) {
 	    if (repo.findAll().isEmpty()) {
 	        return addNewIngredient(model); 

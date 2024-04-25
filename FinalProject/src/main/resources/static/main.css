@@ -1,6 +1,7 @@
 body {
- 	background-color:white;
-	font-family: "Times New Roman", Times, serif;
+ 	background-color:hsla(206, 34%, 79%, 1);
+	font-family: "Courier New", Courier, monospace;
+	border: 3px solid black;
 }
 
 h1 {
@@ -22,44 +23,78 @@ form .plain {
 	font-size: 18px;
 }
 
-table td {
-    font-family: "Times New Roman", Times, serif;
+table {
+	width: 100%;
+	border-top: 3px solid black;
+	border-collapse: collapse;
+}
+
+table th {
+	border: 1px solid black;
+	padding: 5px;
+    font-family: "Courier New", Courier, monospace;
     font-size: 18px;
+}
+
+table td {
+	border: 1px solid black;
+	padding: 5px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 18px;
+    color:hsla(206, 0%, 17%, 1);
 }
 
 input, select {
 	margin: 10px;
-	border: 3px solid #29333B;
-	border-radius: 5px;
+	border: 2px solid #29333B;
+	border-radius: 8px;
 	font-size: 18px;
-	font-family: "Times New Roman", Times, serif;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
-a.edit {
-	color: #3c71b3;
+a.edit:link,  a.edit:visited{
+	color:hsla(206, 0%, 17%, 1);
 	margin: 5px;
+	padding: 5px;
+	text-decoration: none;
 }
 
-a.delete {
-    color: #4d4d4d;
+a.delete:link, a.delete:visited {
+    color:hsla(206, 0%, 17%, 1);
     margin: 5px;
+    padding: 5px;
+    text-decoration: none;
 }
 
-a.confirm {
-    color: #43767a;
+a.confirm:link, a.confirm:visited {
+    color:hsla(206, 0%, 17%, 1);
     margin: 5px;
+    padding: 5px;
+    text-decoration: none;
 }
 
 a.edit:hover {
-	color: #7020c8;
+	color: white;
+	background-color: hsla(225, 100%, 27%, 0.35);
+	text-decoration: none;
+	box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.50);
+	border-radius: 6px;
 }
 
 a.delete:hover {
-	color: red;
+	color: white;
+	background-color: hsla(360, 100%, 36%, 0.35);
+	text-decoration: none;
+	box-shadow:  0 0px 5px 0 rgba(0, 0, 0, 0.50);
+	border-radius: 6px;
 }
 
 a.confirm:hover {
-	color: #10b6be;
+	color: white;
+	background-color: hsla(95, 100%, 23%, 0.35);
+	text-decoration: none;
+	box-shadow:  0 0px 5px 0 rgba(0, 0, 0, 0.50);
+	border-radius: 6px;
 }
 
 ul {
@@ -89,6 +124,7 @@ li a:hover, .dropdown:hover .dropbtn {
 
 li.dropdown {
   display: inline-block;
+  font-weight:bold;
 }
 
 .dropdown-content {
@@ -114,4 +150,25 @@ li.dropdown {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+a.newbutton:link, a.newbutton:visited {
+	color:hsla(206, 0%, 17%, 1);
+	background-color: hsla(112, 0%, 80%, 1);
+	margin: 5px;
+	padding: 5px;
+	text-decoration: none;
+	border: 1px solid black;
+	border-radius: 6px;
+	font-size: 20px;
+}
+
+a.newbutton:hover {
+	color: hsla(206, 0%, 17%, 1);
+	background-color: hsla(112, 0%, 75%, 1);
+	text-decoration: none;
+	border: 1px solid black;
+	box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.50);
+	border-radius: 6px;
+	font-size: 20px;
 }
